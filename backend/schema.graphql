@@ -7,11 +7,11 @@ schema {
 
 type Customer {
     email: String
-    firstName: String
+    name: String
     id: ID!
-    lastName: String
-    orders: [Order]
 }
+
+
 
 type Mutation {
     " Create a new product in the system."
@@ -20,15 +20,24 @@ type Mutation {
     deleteProduct(id: Int): Boolean
     " Update an existing product in the system."
     updateProduct(input: ProductInput): Product
+
+    " Create a new Customer in the system."
+    createCustomer(input: CustomerInput): Customer
+    " Delete a Customer in the system."
+    deleteCustomer(id: Int): Boolean
+    " Update an existing Customer in the system."
+    updateCustomer(input: CustomerInput): Customer
+
+    createOrder(input: OrderInput): Order
+
+    deleteOrder(input: OrderInput): Order
 }
 
 type Order {
     customer: Customer
     id: ID!
-    orderedOn: Date
     product: Product
     qty: Int
-    status: OrderStatus
 }
 
 " Objects"
@@ -36,6 +45,7 @@ type Product {
     desc: String
     id: ID!
     title: String
+    price: Float
 }
 
 " Root Operations"
@@ -46,39 +56,17 @@ type Query {
     allOrders: [Order]
     " List all products in the system."
     allProducts: [Product]
-    " Find all reviews in the system."
-    allReviews: [Review]
-    " Find a customer by their last name."
-    findCustomerByLastName(last: String): Customer
+    " Find a customer by their id."
+    findCustomerById(id: ID): Customer
     " Find an order by order id."
     getOrder(id: ID): Order
     " Get a single product by the product id."
     getProduct(id: ID): Product
-    " Find a review by the review id."
-    getReview(id: ID): Review
+
+
 }
 
-type Review {
-    content: String
-    customer: Customer!
-    id: ID!
-    product: Product!
-    status: ReviewStatus
-}
 
-enum OrderStatus {
-    CANCELED
-    DELIVERED
-    ORDERED
-    PENDING
-    SHIPPED
-}
-
-enum ReviewStatus {
-    APPROVED
-    DECLINED
-    PENDING
-}
 
 "An RFC-3339 compliant Full Date Scalar"
 scalar Date
@@ -91,4 +79,18 @@ input ProductInput {
     desc: String
     id: Int
     title: String
+    price: Float
+}
+
+input CustomerInput {
+    email: String
+    id: Int
+    name: String
+}
+
+input OrderInput{
+    idOrder: Int
+    idCustomer: Int
+    idProduct: Int
+    qty: Int
 }
