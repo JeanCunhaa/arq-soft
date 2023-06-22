@@ -1,0 +1,58 @@
+<div class="container mt-4 shadow">
+  <div class="card ">
+    <h1 id="registroAluno">Registro de Pedido</h1>
+    <form>
+      <div class="form-group ">
+        <label><strong>Produto</strong></label>
+        <input type="text" #productInput [(ngModel)]="orderInput.product" [ngModelOptions]="{standalone: true}"
+          class="form-control" id="produto" placeholder="Digite o produto">
+      </div>
+      <div class="form-group ">
+        <label><strong>Quantidade</strong></label>
+        <input type="text" #qtyInput [(ngModel)]="orderInput.qty" [ngModelOptions]="{standalone: true}"
+          class="form-control" id="quantidade" placeholder="Digite a quantidade">
+      </div>
+
+
+      <div class="form-group ">
+        <label><strong>Cliente</strong></label>
+        <select #customerInput [(ngModel)]="orderInput.quantidade" (click)="geraClientesBotao()" [ngModelOptions]="{standalone: true}"
+          class="form-control" id="quantidade" placeholder="Digite a quantidade">
+          <option *ngFor="let customer of listCustomer">{{customer.name}}</option>
+        </select>
+
+      </div>
+
+      <div class="form-group ">
+        <label><strong>ID</strong></label>
+        <input type="text" #idInput class="form-control" placeholder="Digite o ID">
+      </div>
+      <div class="botoes">
+        <button type="submit" id="btnSave" class="btn btn-primary mt-4 shadow"
+          (click)="createOrder(orderInput)">Salvar</button>
+        <button type="submit" id="btnDel" class="btn btn-danger mt-4 shadow"
+          (click)="deleteOrder(+idInput.value)">Deletar</button>
+
+      </div>
+
+      <!--<button type="submit" id="btLimpar"  class="btn btn-primary mt-4 shadow" (click)="limpar()" >Limpar</button>
+        -->
+
+    </form>
+
+
+
+
+
+    <h1>Pedidos</h1>
+    <table class="table">
+
+      <tbody>
+        <tr *ngFor="let order of listOrder">
+          <th scope="row">{{order.id }}</th>
+          <td>{{order.produto }}</td>
+          <td>{{order.quantidade }}</td>
+        </tr>
+
+      </tbody>
+    </table>

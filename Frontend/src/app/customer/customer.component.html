@@ -1,0 +1,49 @@
+<div class="container mt-4 shadow" >
+    <div class="card ">
+            <h1 id="registroAluno">Registro de Cliente</h1>
+    <form>
+        <div class="form-group ">
+          <label><strong>Nome</strong></label>
+          <input type="text" #nameInput [(ngModel)]="customerInput.name" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" placeholder="Digite o name do customer">
+        </div>
+        <div class="form-group ">
+            <label><strong>E-mail</strong></label>
+            <input type="text"  #emailInput  [(ngModel)]="customerInput.email" [ngModelOptions]="{standalone: true}"  class="form-control" id="email" placeholder="Digite o email">
+        </div>
+
+        <div class="form-group ">
+          <label><strong>ID</strong></label>
+          <input type="text" #idInput class="form-control" placeholder="Digite o ID">
+      </div>
+      
+        <div class="botoes">
+        <button type="submit" id="btnSave"  class="btn btn-primary mt-4 shadow" (click)="createCustomer(customerInput)" >Salvar</button>
+        <button type="submit" id="btnDel"  class="btn btn-danger mt-4 shadow" (click)="deleteCustomer(+idInput.value)" >Deletar</button>
+        <button type="submit" id="btnUpd"  class="btn btn-warning mt-4 shadow" (click)="updateCustomer()" >atualizar</button>
+      </div>
+
+        <!--<button type="submit" id="btLimpar"  class="btn btn-primary mt-4 shadow" (click)="limpar()" >Limpar</button>
+        -->
+        
+      </form>
+
+      
+
+
+
+
+<h1>Clientes</h1>
+          <table class="table">
+           
+            <tbody>
+                <tr *ngFor="let customer of listCustomer">
+                <th scope="row">{{customer.id }}</th>
+                <td>{{customer.name }}</td>
+                <td>{{customer.email }}</td>
+                
+              </tr>
+              
+               
+            </tbody>
+          </table>
+          

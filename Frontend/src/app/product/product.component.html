@@ -1,0 +1,53 @@
+<div class="container mt-4 shadow" >
+    <div class="card ">
+            <h1 id="registroAluno">Registro de Produto</h1>
+    <form>
+        <div class="form-group ">
+          <label><strong>Titulo</strong></label>
+          <input type="text" #titleInput [(ngModel)]="productInput.title" [ngModelOptions]="{standalone: true}"  class="form-control" id="title" placeholder="Digite o titulo">
+        </div>
+
+        <div class="form-group ">
+          <label><strong>Preço</strong></label>
+          <input type="text"  #priceInput  [(ngModel)]="productInput.price" [ngModelOptions]="{standalone: true}"  class="form-control" id="price" placeholder="Digite o preço">
+       </div>
+
+        <div class="form-group ">
+            <label><strong>Descrição</strong></label>
+            <input type="text"  #descInput  [(ngModel)]="productInput.desc" [ngModelOptions]="{standalone: true}"  class="form-control" id="desc" placeholder="Digite a descricao">
+        </div>
+
+
+        <div class="form-group ">
+          <label><strong>ID</strong></label>
+          <input type="text" #idInput class="form-control" placeholder="Digite o ID">
+      </div>
+        <div class="botoes">
+          <button type="submit" id="btnSave"  class="btn btn-primary mt-4 shadow" (click)="createProduct(productInput)" >Salvar</button>
+          <button type="submit" id="btnDel"  class="btn btn-danger mt-4 shadow" (click)="deleteProduct(+idInput.value)" >Deletar</button>
+          <button type="submit" id="btnUpd"  class="btn btn-warning mt-4 shadow" (click)="updateProduct()" >atualizar</button>
+
+        </div>
+        
+        <!--<button type="submit" id="btLimpar"  class="btn btn-primary mt-4 shadow" (click)="limpar()" >Limpar</button>
+        -->
+        
+      </form>
+
+
+
+
+
+<h1>Produtos</h1>
+          <table class="table">
+           
+            <tbody>
+                <tr *ngFor="let product of listProduct">
+                <th scope="row">{{product.id }}</th>
+                <td>{{product.title }}</td>
+                <td>{{product.price }}</td>
+                <td>{{product.desc }}</td>
+              </tr>
+              
+            </tbody>
+          </table>

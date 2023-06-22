@@ -1,0 +1,88 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card{
+    padding: 20px;
+}
+
+
+h1{
+    text-align: center;
+    display: flexbox;
+    align-self: center;
+}
+
+.form-group{
+    padding: 5px;
+}
+
+#btnDelete{
+    margin-left: 13px;
+}
+
+.table{
+    margin-bottom: 15vw;
+}
+
+
+.custom-shadow {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+
+#btCadProd{
+    padding-bottom: 10px;
+}
+
+
+#btLimpar {
+    margin-left: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.mt-4 {
+    padding-bottom: 10vh;
+}
+
+a{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    padding-left: 8px;
+    margin-left: 5px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(143, 143, 143);
+    color: white;
+}
+
+
+//id="btCadProd"  
+//id="btDelProd"  
+//id="btUptProd"
+
+.botoes button {
+    margin-right: 10px; /* Define uma margem à direita dos botões */
+    
+  }
+#btnSave{
+    height: 0px;
+}
+#btnDel{
+    height: 0px;
+}
+#btnUpd{
+    height: 0px;
+}
+  
+ 
